@@ -16,6 +16,13 @@
 
   <dependencies>
 
+    <dependency>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>3.4.1</version>
+    </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/org.w3c/dom -->
     <dependency>
       <groupId>org.w3c</groupId>
