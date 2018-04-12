@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config>
+    <className>com.design.结构型模式.适配器模式.对象适配器模式.OperationAdapter</className>
+</config>
