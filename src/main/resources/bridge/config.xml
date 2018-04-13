@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config>
+    <!--RefinedAbstraction-->
+    <className>com.design.结构型模式.桥接模式.JPGImage</className>
+    <!--ConcreteImplementor-->
+    <className>com.design.结构型模式.桥接模式.WindowsImp</className>
+</config>
