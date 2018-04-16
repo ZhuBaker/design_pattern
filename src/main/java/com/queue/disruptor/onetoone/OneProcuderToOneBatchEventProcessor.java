@@ -49,6 +49,7 @@ public class OneProcuderToOneBatchEventProcessor extends AbstractPerfTestDisrupt
 
     @Override
     protected PerfTestContext runDisruptorPass() throws Exception {
+        System.out.println(expectedResult);
         PerfTestContext perfTestContext = new PerfTestContext();
         final CountDownLatch latch = new CountDownLatch(1);
         long expectedCount = batchEventProcessor.getSequence().get() + ITERATIONS;
