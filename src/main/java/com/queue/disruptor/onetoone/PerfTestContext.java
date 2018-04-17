@@ -7,11 +7,13 @@ package com.queue.disruptor.onetoone;
  */
 public class PerfTestContext {
 
-    // 操作个数
+    // 每秒操作次数
     private long disruptorOps;
 
+    //
     private long batchesProcessedCount;
 
+    // 执行总次数
     private long iterations;
 
     public PerfTestContext() {

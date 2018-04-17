@@ -29,7 +29,12 @@ public class OneProcuderToOneBatchEventProcessor extends AbstractPerfTestDisrupt
     // 构造RingBuffer
      private final RingBuffer<ValueEvent> ringBuffer =
             RingBuffer.createSingleProducer(ValueEvent.EVENT_FACTORY,BUFFER_SIZE,new YieldingWaitStrategy());
-    // 构造 BatchEventProcessor 及 依赖关系
+
+    /**
+     * 构造 BatchEventProcessor 及 依赖关系
+     * 在Disruptor中，消费者是以EventProcessor的形式存在的。其中一类消费者是BatchEvenProcessor。每个BatchEvenProcessor有一个Sequence，
+     * 来记录自己消费RingBuffer中消息的情况。所以，一个消息必然会被每一个BatchEvenProcessor消费。
+     */
     private final SequenceBarrier sequenceBarrier = ringBuffer.newBarrier();
     private final ValueEventHandler handler = new ValueEventHandler();
     private final BatchEventProcessor<ValueEvent> batchEventProcessor =

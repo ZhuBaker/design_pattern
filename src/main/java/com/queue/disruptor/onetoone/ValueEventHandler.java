@@ -10,6 +10,7 @@ import java.util.concurrent.CountDownLatch;
  * @Author: BakerZhu
  * @Date: 2018/4/14 19:14
  * @Description: 事件处理器
+ * BatchStartAware 批次处理器 , 每执行一批次 , 都会执行 onBatchStart 方法, 入参为此次执行批次中数量的大小
  */
 public class ValueEventHandler implements EventHandler<ValueEvent> , BatchStartAware {
 
@@ -17,6 +18,7 @@ public class ValueEventHandler implements EventHandler<ValueEvent> , BatchStartA
     private final PaddedLong batchesProcessed = new PaddedLong();
     private long count;
     private CountDownLatch latch;
+
 
     public long getValue()
     {
@@ -54,6 +56,10 @@ public class ValueEventHandler implements EventHandler<ValueEvent> , BatchStartA
         }
     }
 
+    /**
+     * 入参为 此次执行批次数量的大小
+     * @param batchSize
+     */
     @Override
     public void onBatchStart(long batchSize) {
         batchesProcessed.increment();
