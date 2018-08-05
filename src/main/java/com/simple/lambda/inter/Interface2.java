@@ -1,4 +1,4 @@
-package com.simple.lambdajava;
+package com.simple.lambda.inter;
 
 /**
  * Created by zhubo on 2018/4/14.
