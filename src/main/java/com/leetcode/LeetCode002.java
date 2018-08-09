@@ -20,8 +20,8 @@ import java.util.Map;
  */
 public class LeetCode002 {
 	public static void main(String[] args) {
-		int[] arr = new int[]{12,3,5,14,2,6,7,23,45,123,14,34,60,22};
-		printArr(findTarget(arr, 28));
+		int[] arr = new int[]{3,2,4};
+		printArr(findTarget(arr, 6));
 	}
 	/**
 	 * 主要逻辑实现
@@ -32,26 +32,14 @@ public class LeetCode002 {
 	private static int[]  findTarget(int[] array,int target) {
 		int[] returnVal = new int[2];
 		// 排除array中两值相同的情况
-		if(target % 2 == 0) {
-			int avg = target / 2;
-			int index = 0;
-			for (int i = 0; i < array.length; i++) {
-				if(array[i] == avg) {
-					returnVal[index++] = i;
-				}
-				// 数据填满就返回
-				if(index > 1) {
-					return returnVal;
-				}
-			}
-		}
+
 		Map<Integer,Integer> map = new HashMap<>(array.length,1);
 		for (int i = 0; i < array.length; i++) {
 			map.put(array[i],i);
 		}
 		for (int i = 0; i < array.length; i++) {
 			Integer index = map.get((target - array[i]));
-			if(index != null) {
+			if(index != null && index != i) {
 				returnVal[0] = i;
 				returnVal[1] = index;
 				return returnVal;
